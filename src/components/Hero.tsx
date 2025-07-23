@@ -1,5 +1,6 @@
 import { ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import profileImage from '@/assets/profile-image.png';
 
 const Hero = () => {
   return (
@@ -57,14 +58,11 @@ const Hero = () => {
           <div className="flex justify-center lg:justify-end animate-scale-in">
             <div className="relative">
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl glass-card overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary-muted/30 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                      <span className="text-4xl font-bold text-primary">LM</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">Professional photo coming soon</p>
-                  </div>
-                </div>
+                <img 
+                  src={profileImage} 
+                  alt="Lohit Mahindrakar - Software Developer" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Floating Elements */}
