@@ -3,7 +3,6 @@ import Hero from '@/components/Hero';
 import SkillsPreview from '@/components/SkillsPreview';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import ServicesGoals from '@/components/ServicesGoals';
-import Achievements from '@/components/Achievements';
 import CallToAction from '@/components/CallToAction';
 
 const Index = () => {
@@ -13,7 +12,6 @@ const Index = () => {
       <Hero />
       <SkillsPreview />
       <FeaturedProjects />
-      <Achievements />
       <ServicesGoals />
       <CallToAction />
     </div>

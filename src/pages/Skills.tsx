@@ -8,10 +8,8 @@ const Skills = () => {
       icon: <Code className="text-primary" size={28} />,
       skills: [
         { name: 'JavaScript', level: 85 },
-        { name: 'TypeScript', level: 80 },
-        { name: 'C++', level: 75 },
-        { name: 'HTML', level: 90 },
-        { name: 'CSS', level: 85 },
+        { name: 'C++', level: 90 },
+        { name: 'python', level: 90 },
       ]
     },
     {
@@ -20,7 +18,6 @@ const Skills = () => {
       skills: [
         { name: 'React.js', level: 85 },
         { name: 'Node.js', level: 70 },
-        { name: 'Express.js', level: 65 },
         { name: 'Three.js', level: 60 },
         { name: 'Tailwind CSS', level: 90 },
       ]
@@ -41,7 +38,6 @@ const Skills = () => {
       icon: <Database className="text-primary" size={28} />,
       skills: [
         { name: 'AI Integration', level: 75 },
-        { name: 'REST API', level: 70 },
         { name: 'Problem Solving', level: 85 },
         { name: 'Full-Stack Development', level: 75 },
         { name: 'Machine Learning', level: 65 },
@@ -104,39 +100,7 @@ const Skills = () => {
           </div>
         </section>
 
-        {/* Additional Skills */}
-        <section className="section-container">
-          <div className="glass-card p-8 rounded-2xl animate-scale-in">
-            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
-              Other Competencies
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {[
-                'Responsive Design',
-                'API Development',
-                'Database Design',
-                'UI/UX Principles',
-                'Version Control',
-                'Agile Methodology',
-                'Code Review',
-                'Testing',
-                'Documentation',
-                'Project Management',
-                'Team Collaboration',
-                'Continuous Learning'
-              ].map((skill, index) => (
-                <div 
-                  key={skill}
-                  className="bg-primary/5 border border-primary/10 rounded-lg p-4 text-center hover:bg-primary/10 transition-colors duration-300"
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  <span className="text-sm font-medium text-foreground">{skill}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
+        
         {/* Learning Journey */}
         <section className="section-container">
           <div className="text-center glass-card p-8 rounded-2xl animate-fade-in">
@@ -147,25 +111,7 @@ const Skills = () => {
               As a passionate developer, I'm always expanding my skillset and staying updated 
               with the latest technologies and best practices in software development.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-                'Next.js',
-                'GraphQL',
-                'Docker',
-                'AWS',
-                'Python',
-                'TensorFlow',
-                'PostgreSQL',
-                'Redis'
-              ].map((tech) => (
-                <span 
-                  key={tech}
-                  className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            
           </div>
         </section>
       </main>

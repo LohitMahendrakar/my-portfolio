@@ -1,5 +1,6 @@
 import { Mail, Linkedin, Github, ArrowRight, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import resume from '@/assets/LohitResume01.pdf';
 
 const CallToAction = () => {
   const contactMethods = [
@@ -47,7 +48,7 @@ const CallToAction = () => {
             </Link>
             
             <a 
-              href="/lovable-uploads/5042e1da-fa99-4cbc-8c11-388a082d6f0d.png" 
+              href={resume}
               download
               className="px-8 py-4 border-2 border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 inline-flex items-center gap-2 text-lg"
             >

@@ -11,14 +11,41 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: '', email: '', message: '' });
+
+    try {
+      const response = await fetch('https://formspree.io/f/myzpeblw', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        toast({
+          title: 'Message Sent!',
+          description: "Thank you for reaching out. I'll get back to you soon!",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        toast({
+          title: 'Error',
+          description: 'Something went wrong. Please try again.',
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Unable to send message. Please try again later.',
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,9 +85,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24">
-        {/* Hero Section */}
         <section className="section-container">
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -93,7 +119,7 @@ const Contact = () => {
                     placeholder="Your full name"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                     Email
@@ -109,7 +135,7 @@ const Contact = () => {
                     placeholder="your.email@example.com"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message
@@ -125,7 +151,7 @@ const Contact = () => {
                     placeholder="Tell me about your project or just say hello..."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   className="w-full btn-professional inline-flex items-center justify-center gap-2"
@@ -138,11 +164,10 @@ const Contact = () => {
 
             {/* Contact Info & Availability */}
             <div className="space-y-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              {/* Contact Information */}
               <div className="glass-card p-8 rounded-2xl">
                 <h2 className="text-2xl font-bold text-foreground mb-6">Get in touch</h2>
                 <div className="space-y-6">
-                  {contactInfo.map((contact, index) => (
+                  {contactInfo.map((contact) => (
                     <a
                       key={contact.label}
                       href={contact.link}
@@ -162,7 +187,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Availability */}
               <div className="glass-card p-8 rounded-2xl">
                 <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-3">
                   <MapPin className="text-primary" size={24} />
@@ -178,7 +202,7 @@ const Contact = () => {
                       I'm currently seeking internship and job opportunities in software development.
                     </p>
                   </div>
-                  
+
                   <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
                     <h4 className="font-semibold text-foreground mb-2">What I'm looking for:</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
@@ -191,7 +215,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Response Time */}
               <div className="glass-card p-6 rounded-2xl text-center">
                 <h3 className="text-lg font-bold text-foreground mb-2">Response Time</h3>
                 <p className="text-muted-foreground text-sm">
@@ -201,39 +224,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
-        {/* Services Section */}
-        <section className="section-container">
-          <div className="glass-card p-8 rounded-2xl text-center animate-scale-in">
-            <h2 className="text-2xl font-bold text-foreground mb-6">
-              Services & Collaboration
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-3xl mx-auto">
-              I'm passionate about building intuitive and scalable web applications with a strong focus 
-              on performance and modern design. I'd love to collaborate on exciting tech projects!
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-6 bg-primary/5 rounded-lg border border-primary/10">
-                <h3 className="font-semibold text-foreground mb-2">Web Development</h3>
-                <p className="text-sm text-muted-foreground">
-                  Modern, responsive websites and web applications using React, TypeScript, and cutting-edge technologies.
-                </p>
-              </div>
-              <div className="p-6 bg-primary/5 rounded-lg border border-primary/10">
-                <h3 className="font-semibold text-foreground mb-2">AI Integration</h3>
-                <p className="text-sm text-muted-foreground">
-                  Implementing AI solutions and machine learning models to solve complex business problems.
-                </p>
-              </div>
-              <div className="p-6 bg-primary/5 rounded-lg border border-primary/10">
-                <h3 className="font-semibold text-foreground mb-2">Consultation</h3>
-                <p className="text-sm text-muted-foreground">
-                  Technical consultation and code reviews to help improve your existing projects and workflows.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   );

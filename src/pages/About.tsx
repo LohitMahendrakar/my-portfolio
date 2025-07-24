@@ -129,30 +129,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Fun Facts */}
-        <section className="section-container">
-          <div className="glass-card p-8 rounded-2xl text-center animate-scale-in">
-            <h3 className="text-2xl font-bold text-foreground mb-8">Quick Facts</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div>
-                <p className="text-3xl font-bold text-primary mb-2">2023</p>
-                <p className="text-sm text-muted-foreground">Started Programming</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary mb-2">3+</p>
-                <p className="text-sm text-muted-foreground">Major Projects</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary mb-2">AI</p>
-                <p className="text-sm text-muted-foreground">Primary Interest</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary mb-2">24/7</p>
-                <p className="text-sm text-muted-foreground">Learning Mode</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        
       </main>
     </div>
   );

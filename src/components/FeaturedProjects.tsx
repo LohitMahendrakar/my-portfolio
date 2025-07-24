@@ -1,4 +1,4 @@
-import { Brain, Home, Image, ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { Brain, Home, Image, Github, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const FeaturedProjects = () => {
@@ -9,15 +9,17 @@ const FeaturedProjects = () => {
       technologies: ['React', 'TypeScript', 'OpenAI API', 'RAG'],
       icon: <Brain className="text-primary" size={24} />,
       category: 'AI/ML',
-      gradient: 'from-blue-500/20 to-purple-500/20'
+      gradient: 'from-blue-500/20 to-purple-500/20',
+      // githubUrl: 'https://github.com/LohitMahendrakar/documind-ai' // 🔗 ADD GITHUB LINK
     },
     {
-      title: 'Real Estate Price Estimator',
-      description: 'ML model predicting housing prices using tabular data and satellite imagery.',
-      technologies: ['Python', 'TensorFlow', 'Google Colab', 'ML'],
-      icon: <Home className="text-primary" size={24} />,
+      title: 'Gold Price Predictor',
+      description: 'Machine Learning model to forecast gold prices using historical market data and trends.',
+      technologies: ['Python', 'Pandas', 'Scikit-learn', 'ML'],
+      icon: <Brain className="text-primary" size={24} />,
       category: 'Machine Learning',
-      gradient: 'from-green-500/20 to-blue-500/20'
+      gradient: 'from-yellow-400/20 to-orange-500/20',
+      githubUrl: 'https://github.com/LohitMahendrakar/ml-gold-price-predictor'
     },
     {
       title: 'AI Image Generator',
@@ -25,7 +27,8 @@ const FeaturedProjects = () => {
       technologies: ['React', 'Tailwind CSS', 'OpenAI API'],
       icon: <Image className="text-primary" size={24} />,
       category: 'Web Development',
-      gradient: 'from-purple-500/20 to-pink-500/20'
+      gradient: 'from-purple-500/20 to-pink-500/20',
+      // githubUrl: 'https://github.com/LohitMahendrakar/ai-image-generator' // 🔗 ADD GITHUB LINK
     }
   ];
 
@@ -79,15 +82,19 @@ const FeaturedProjects = () => {
                 ))}
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex gap-3 pt-2">
-                <button className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors inline-flex items-center justify-center gap-2">
-                  <ExternalLink size={16} />
-                  Demo
-                </button>
-                <button className="px-4 py-2 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors">
-                  <Github size={16} />
-                </button>
+              {/* GitHub Link Button */}
+             <div className="flex pt-2">
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors inline-flex items-center gap-2"
+                  >
+                    <Github size={16} />
+                    GitHub
+                  </a>
+                )}
               </div>
             </div>
           </div>

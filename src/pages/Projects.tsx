@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Brain, Home, Image } from 'lucide-react';
+import { Github, Brain, Home, Image } from 'lucide-react';
 import Header from '@/components/Header';
 
 const Projects = () => {
@@ -6,7 +6,7 @@ const Projects = () => {
     {
       title: 'DocuMind – AI PDF Assistant',
       description: 'Full-stack AI application using React and RAG (Retrieval-Augmented Generation) architecture, allowing users to query PDFs using natural language. Built with modern web technologies and AI integration.',
-      technologies: ['React', 'TypeScript', 'Node.js', 'OpenAI API', 'RAG Architecture', 'PDF Processing'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'OpenAI API', 'PDF Processing'],
       icon: <Brain className="text-primary" size={24} />,
       features: [
         'Natural language PDF querying',
@@ -15,26 +15,28 @@ const Projects = () => {
         'User-friendly interface'
       ],
       status: 'Completed',
-      category: 'AI/ML'
+      category: 'AI/ML',
+      // githubUrl: 'https://github.com/LohitMahendrakar/documind-ai' {Add real link}
     },
     {
-      title: 'Real Estate Price Estimator',
-      description: 'Machine learning project built with Google Colab that uses multi-input ML model to predict housing prices using both tabular data and satellite images for comprehensive property analysis.',
-      technologies: ['Python', 'Google Colab', 'TensorFlow', 'Pandas', 'Satellite Imagery', 'ML'],
+      title: 'Gold Price Predictor',
+      description: 'Machine learning model that predicts gold prices using historical market data and trends. Built using Python libraries and data preprocessing techniques.',
+      technologies: ['Python', 'Pandas', 'Scikit-learn', 'Jupyter Notebook', 'Matplotlib'],
       icon: <Home className="text-primary" size={24} />,
       features: [
-        'Multi-input data processing',
-        'Satellite image analysis',
-        'Accurate price predictions',
-        'Data visualization'
+        'Historical price data preprocessing',
+        'Regression model training and evaluation',
+        'Visualization of predicted vs actual prices',
+        'Easy-to-understand ML pipeline'
       ],
       status: 'Completed',
-      category: 'Machine Learning'
+      category: 'Machine Learning',
+      githubUrl: 'https://github.com/LohitMahendrakar/ml-gold-price-predictor'
     },
     {
       title: 'AI Image Generator',
       description: 'React application utilizing OpenAI API to generate AI-based images from user input prompts. Features modern UI built with Tailwind CSS and seamless integration with AI services.',
-      technologies: ['React', 'Tailwind CSS', 'OpenAI API', 'JavaScript', 'REST API'],
+      technologies: ['React', 'Tailwind CSS', 'OpenAI API', 'JavaScript', 'Vite'],
       icon: <Image className="text-primary" size={24} />,
       features: [
         'Text-to-image generation',
@@ -43,7 +45,8 @@ const Projects = () => {
         'Responsive design'
       ],
       status: 'Completed',
-      category: 'Web Development'
+      category: 'Web Development',
+      // githubUrl: 'https://github.com/LohitMahendrakar/ai-image-generator' {Add real link}
     }
   ];
 
@@ -115,14 +118,15 @@ const Projects = () => {
 
                     {/* Action Buttons */}
                     <div className="flex gap-4 pt-4">
-                      <button className="btn-professional inline-flex items-center gap-2">
-                        <ExternalLink size={18} />
-                        View Live Demo
-                      </button>
-                      <button className="px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 inline-flex items-center gap-2">
+                      <a 
+                        href={project.githubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 inline-flex items-center gap-2"
+                      >
                         <Github size={18} />
                         View Code
-                      </button>
+                      </a>
                     </div>
                   </div>
 
@@ -138,14 +142,6 @@ const Projects = () => {
                           </li>
                         ))}
                       </ul>
-                    </div>
-
-                    {/* Project Image Placeholder */}
-                    <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary-muted/20 rounded-lg flex items-center justify-center border border-primary/10">
-                      <div className="text-center p-4">
-                        {project.icon}
-                        <p className="text-xs text-muted-foreground mt-2">Project Screenshot</p>
-                      </div>
                     </div>
                   </div>
                 </div>

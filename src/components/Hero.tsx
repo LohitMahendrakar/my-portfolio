@@ -1,6 +1,7 @@
 import { ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import profileImage from '@/assets/profile-image.png';
+import resume from '@/assets/LohitResume01.pdf';
 
 const Hero = () => {
   return (
@@ -22,7 +23,7 @@ const Hero = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Link 
                 to="/projects" 
                 className="btn-professional inline-flex items-center gap-2 group"
@@ -30,21 +31,40 @@ const Hero = () => {
                 Explore My Work
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              
-              <button className="px-8 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 inline-flex items-center gap-2">
+
+              <a
+                href={resume}
+                download
+                rel="noopener noreferrer"
+                className="px-8 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 inline-flex items-center gap-2"
+              >
                 <Download size={18} />
                 Download Resume
-              </button>
+              </a>
+
+              <a
+                href="https://leetcode.com/u/lohitmahendrakar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 inline-flex items-center gap-2"
+              >
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" 
+                  alt="LeetCode"
+                  className="w-5 h-5"
+                />
+                LeetCode
+              </a>
             </div>
 
             {/* Stats */}
             <div className="flex gap-8 pt-8 border-t border-glass-border">
               <div>
-                <p className="text-2xl font-bold text-foreground">3+</p>
+                <p className="text-2xl font-bold text-foreground">4+</p>
                 <p className="text-sm text-muted-foreground">Projects Completed</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-foreground">2024</p>
+                <p className="text-2xl font-bold text-foreground">2023</p>
                 <p className="text-sm text-muted-foreground">Started Coding</p>
               </div>
               <div>
@@ -64,10 +84,13 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              
+
               {/* Floating Elements */}
               <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary rounded-full animate-pulse" />
-              <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+              <div 
+                className="absolute -bottom-4 -right-4 w-6 h-6 bg-primary/60 rounded-full animate-pulse" 
+                style={{ animationDelay: '1s' }} 
+              />
             </div>
           </div>
         </div>
